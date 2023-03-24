@@ -1,7 +1,7 @@
 export const colorTokens = {
     grey: {
         0: "#FFFFFF",
-        10: "#f6f6f6",
+        10: "#F6F6F6",
         50: "#F0F0F0",
         100: "#E0E0E0",
         200: "#C2C2C2",
@@ -28,7 +28,7 @@ export const colorTokens = {
     },    
 };
 
-export const themeSettings = (mode) => {
+export const themeSettings = (node) => {
     return {
         palette: {
             primary: {
@@ -48,6 +48,7 @@ export const themeSettings = (mode) => {
                 alt: colorTokens.grey[0],
             },
         },
+        
         typography: {
             fontSize: 12, 
             h1: {

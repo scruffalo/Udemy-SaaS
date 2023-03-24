@@ -4,7 +4,7 @@ const ErrorResponse = require('../utils/errorResponse.js');
 const jwt = require('jsonwebtoken');
 
 const sendToken = (user, statusCode, res) => {
-    const Token = user.getSignedJwtToken(res);
+    const token = user.getSignedJwtToken(res);
     res.status(statusCode).json({ success: true, token});
 }
 
@@ -38,13 +38,13 @@ exports.login = async (req, res, next) => {
         //check that user already exists by email 
         const user = await User.findOne({email});
         if (!user) {
-            return next(new ErrorResponse("Invalid credentials", 401));
+            return next(new ErrorResponse("User already exists", 401));
         }
 
         //check that password matches 
         const isMatch = await user.matchPasswords(password);
         if (!isMatch) {
-            return next(new ErrorResponse("Invalid credentials", 401));
+            return next(new ErrorResponse("Username and password do not match", 401));
         }
 
         //if email exists and password matches, send login Text
@@ -52,7 +52,7 @@ exports.login = async (req, res, next) => {
     }   catch (err) {
         next(err);
     }
-}
+};
 
 //logout function
 exports.logout = (req, res) => {

@@ -9,8 +9,8 @@ const errorHandler = require('./middleware/error');
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ extended: true }));
 
 //connect our database
 mongoose.set('strictQuery', true);
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI,{useNewUrlParser: true, useUnifiedTopolog
 
 const port = process.env.PORT || 4242;
 
-//connect our routes
+//connect our routes and handle any errors
 app.use('api/auth', require('./routes/auth'));
 app.use(errorHandler);
 

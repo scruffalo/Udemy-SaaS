@@ -32,7 +32,7 @@ const RegisterScreen = () => {
             if (err.response.data.error) {
                 setError(err.response.data.error);
             } else if (err.message) {
-                serError(err.message);
+                setError(err.message);
             }
             setTimeout(() => {
                 setError("");
@@ -41,14 +41,16 @@ const RegisterScreen = () => {
     }
     
     return (        
-        <Box width={isNotMobile ? width="50%" : width="70%" } 
+        <Box width="50%" 
+        // this should go next to the width above - taken out for debugging {isNotMobile ? width="50%" : width="70%" }
             p="2rem"  
-            m="2rem" 
+            m="2rem auto" 
             borderRadius={5} 
             backgroundColor={theme.palette.background.alt} 
             sx={{boxShadow:5}}
         >
-            <Collapse in={error}>
+
+        <Collapse in={error}>
                 <Alert severity='error' sx={{mb:2}}>(error)</Alert>
             </Collapse>
 
@@ -57,11 +59,12 @@ const RegisterScreen = () => {
                 <TextField label="Username" margin="normal" required fullWidth value={username} onChange={(e) => setUsername(e.target.value)}/>
                 <TextField label="Email" margin="normal" required fullWidth value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <TextField label="Password" type="password" vmargin="normal" required fullWidth value={password} onChange={(e) => setPassword(e.target.value)}/>
-                 <Button variant="contained" type="submit" size="large" fullWidth sx={{color:white, mt:2 }}>Sign Up</Button>
-            </form>
+                 <Button variant="contained" type="submit" size="large" fullWidth sx={{ mt:2 }}>Sign Up</Button>
+            </form>    
         </Box>
+        //button color above should be white - taken out for debugging - "color:white ,"
     )
 };
 
-export default HomeScreen;
+export default RegisterScreen;
  
