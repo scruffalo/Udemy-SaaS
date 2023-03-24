@@ -1,3 +1,7 @@
+// READ ME 
+// This is the versino of Navbar.js that the tutorial says to create.
+// I created a basic Navbar.js to debug the code to do with .theme. 
+
 import React from 'react';
 import { Box, Link, Typography, useTheme } from "@mui/material";
 
@@ -13,11 +17,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-
-
-return (
-    <div>
-        <p>This is the navbar</p>
-    </div>
-);

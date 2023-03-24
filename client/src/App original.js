@@ -1,3 +1,7 @@
+// READ ME 
+// This is the versino of App.js that the tutorial says to create.
+// I created a basic App.js to debug the code. 
+
 //does the navigation between addresses
 import { Routes, Route } from 'react-router-dom';
 
